@@ -1,0 +1,90 @@
+/* sir according to number 2, you said we should style them differently that is what i just did that is why i removed .item */
+.container {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto auto auto auto;
+}
+
+
+.container{
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+/* this helps me target the inner div too */
+.container div{
+  color: white;
+  text-decoration: none;
+  margin: 10px 50px;
+  padding: 5px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+/* this helped me target the inner div though they have different class name */
+/* .container div:hover{ */
+/* background-color: red; */
+/* } */
+
+.item1:hover{
+  background-color: red;
+}
+
+.item2:hover{
+  background-color: blue;
+}
+
+.item3:hover{
+  background-color: orange;
+}
+
+.item4:hover{
+  background-color: pink;
+}
+
+.item5:hover{
+  background-color: indigo;
+}
+
+/* for navigation bar */
+nav {
+  display: flex;
+  background: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav div {
+  color: white;
+  text-decoration:  none;
+  margin: 0 50px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3;
+}
+
+nav div:hover{
+  color: blue;
+  background-color: #5555;
+}
+
+
+
+@media (max-width: 600px) {
+    /* I added this so the container changes from 4 columns to 1 column */
+    .container {
+      grid-template-columns: auto;
+    }
+
+    .container div{
+      /* gap: 300px; */
+      /* color: purple; */
+      justify-content: center;
+    }
+    .item5:hover{
+      background-color: red;
+    }
+
+
+}

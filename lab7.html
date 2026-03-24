@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events & Random Timers</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .box { width: 150px; height: 50px; background: #ddd; margin: 10px 0; text-align: center; line-height: 50px; transition: 0.3s; }
+        .counter-section, .form-section, .timer-section { border-top: 1px solid #ccc; margin-top: 20px; padding-top: 10px; }
+        #timerText { font-weight: bold; color: #555; }
+    </style>
+</head>
+<body>
+
+    <button id="btn">Click Me</button>
+    <input type="text" id="input" placeholder="Type here">
+
+    <div id="hoverBox" class="box">Hover over me!</div>
+
+    <div class="counter-section">
+        <p>Count: <span id="countValue">0</span></p>
+        <button id="countBtn">Increment Counter</button>
+    </div>
+
+    <div class="form-section">
+        <form id="emailForm">
+            <input type="text" id="emailInput" placeholder="Enter email">
+            <button type="submit">Submit</button>
+        </form>
+        <p id="formFeedback"></p>
+        <a href="https://google.com" id="preventLink">This link won't work</a>
+    </div>
+
+    <div class="timer-section">
+        <p>Status: <span id="timerText">Waiting for the first random message...</span></p>
+    </div>
+
+    <script>
+        // --- Java script code ---
+        document.getElementById("btn").addEventListener("click", function() {
+            alert("Button clicked!");
+        });
+
+        document.getElementById("input").addEventListener("keyup", function(event) {
+            console.log("Key pressed: " + event.key);
+        });
+
+        // 1. Mouseover event
+        const hoverBox = document.getElementById("hoverBox");
+        hoverBox.addEventListener("mouseover", () => hoverBox.style.backgroundColor = "skyblue");
+        hoverBox.addEventListener("mouseout", () => hoverBox.style.backgroundColor = "#ddd");
+
+        // 2. Simple Counter
+        let count = 0;
+        document.getElementById("countBtn").addEventListener("click", () => {
+            count++;
+            document.getElementById("countValue").textContent = count;
+        });
+
+        // 3. Form validation & 5. Prevent Default
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("emailInput").value;
+            const feedback = document.getElementById("formFeedback");
+
+            if (email.includes("@")) {
+                feedback.textContent = "Valid email! Success.";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "Error: Missing '@' symbol.";
+                feedback.style.color = "red";
+            }
+        });
+
+        // 5. Prevent Default on link
+        document.getElementById("preventLink").addEventListener("click", (e) => {
+            e.preventDefault();
+            alert("Navigation prevented!");
+        });
+
+        // 4. IMPROVED TIMER: Random text every 5 seconds
+        const timerText = document.getElementById("timerText");
+        const messages = [
+            "The early bird gets the worm!",
+            "JavaScript is full of surprises.",
+            "Logic will get you from A to B.",
+            "Coding is 10% writing and 90% debugging.",
+            "Hello from the randomizer!",
+            "Keep calm and code on.",
+            "Data is the new oil."
+        ];
+
+        setInterval(() => {
+            // Pick a random index
+            const randomIndex = Math.floor(Math.random() * messages.length);
+
+            // Apply the new text and a random color for fun
+            timerText.textContent = messages[randomIndex];
+            timerText.style.color = "hsl(" + Math.random() * 360 + ", 70%, 50%)";
+        }, 5000);
+
+    </script>
+</body>
+</html>

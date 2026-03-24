@@ -1,0 +1,75 @@
+:root {
+    --primary: #4f46e5;
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --danger: #ef4444;
+}
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.todo-card {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* 4. Responsive Design (Mobile View) */
+@media (max-width: 480px) {
+    .todo-card { padding: 1.5rem; border-radius: 0; height: 100vh; }
+    .input-group { flex-direction: column; }
+    button#add-btn { padding: 12px; }
+}
+
+.input-group { display: flex; gap: 8px; margin-bottom: 20px; }
+
+input { 
+    flex: 1; 
+    padding: 12px; 
+    border: 2px solid #e2e8f0; 
+    border-radius: 8px;
+    outline: none;
+}
+
+button#add-btn { 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer;
+    font-weight: 600;
+}
+
+ul { list-style: none; padding: 0; }
+
+/* 2. Strike-through for completed tasks */
+li { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 12px; 
+    border-bottom: 1px solid #f1f5f9;
+}
+
+li.completed span { 
+    text-decoration: line-through; 
+    color: #94a3b8; 
+}
+
+/* 1. Delete Button */
+.del-btn {
+    background: #fee2e2;
+    color: var(--danger);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}

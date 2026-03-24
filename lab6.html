@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation - Advanced</title>
+    <style>
+        .hidden { display: none; }
+        .box { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        #displayArea { font-weight: bold; color: green; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1 id="title">DOM Manipulation Lab</h1>
+
+    <div class="box">
+        <h3>1. Add Paragraph</h3>
+        <button onclick="addStyledParagraph()">Add & Color Paragraph</button>
+        <div id="pContainer"></div>
+    </div>
+
+    <div class="box">
+        <h3>2. Dynamic List Items</h3>
+        <ul id="myList">
+            <li>Original Item</li>
+        </ul>
+        <button onclick="addListItem()">Append New Item</button>
+    </div>
+
+    <div class="box">
+        <h3>3. Toggle Visibility</h3>
+        <p class="toggle-me">Now you see me...</p>
+        <button onclick="toggleVisibility()">Toggle Above Text</button>
+    </div>
+
+    <div class="box">
+        <h3>4. Input Fetch & Error Handling</h3>
+        <input type="text" id="userInput" placeholder="Enter text here">
+        <button onclick="processInput()">Submit & Test Error</button>
+        <div id="displayArea"></div>
+    </div>
+
+    <script>
+        // 1. Add a paragraph and change its text color
+        function addStyledParagraph() {
+            const p = document.createElement("p");
+            p.innerText = "I was created by JS!";
+            p.style.color = "crimson";
+            document.getElementById("pContainer").appendChild(p);
+        }
+
+        // 2. Create a new list item dynamically and append to existing ul
+        function addListItem() {
+            const list = document.getElementById("myList");
+            const newItem = document.createElement("li");
+            newItem.innerText = "New Item " + (list.children.length + 1);
+            list.appendChild(newItem);
+        }
+
+        // 3. Use querySelector to select a class and toggle visibility
+        function toggleVisibility() {
+            const element = document.querySelector(".toggle-me");
+            element.classList.toggle("hidden");
+        }
+
+        // 4. Fetch input from form field and display it
+        // 5. (Combined) Handle errors: Try selecting a non-existent element
+        function processInput() {
+            // Task 4: Fetch and Display
+            const inputVal = document.getElementById("userInput").value;
+            const display = document.getElementById("displayArea");
+            display.innerText = "Output: " + inputVal;
+
+            // Task 5: Error Handling
+            try {
+                console.log("Attempting to select a non-existent element...");
+                const ghost = document.querySelector("#this-id-does-not-exist");
+
+                if (!ghost) {
+                    // Manually throwing an error because querySelector returns null (not a crash)
+                    throw new Error("Element #this-id-does-not-exist was not found.");
+                }
+
+                // This line will never run
+                ghost.style.backgroundColor = "red";
+
+            } catch (error) {
+                console.error("Caught expected error:", error.message);
+            }
+        }
+    </script>
+</body>
+</html>
