@@ -1,7 +1,172 @@
-<!DOCCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Development Projects</title>
+    <style>
+        /* ===== Base Page Styling ===== */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+            line-height: 1.6;
+        }
 
-<html>
-  <head>
-    <title>come</title>
-  </head>
+        /* ===== Header Section ===== */
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            opacity: 0.85;
+            margin: 5px 0;
+        }
+
+        /* ===== Main Content Container ===== */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* ===== Projects Grid Layout ===== */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        /* ===== Project Card Styling ===== */
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+
+        /* Project button link */
+        .card a {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 14px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .card a:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Web Development Projects</h1>
+        <p>Registration Number: 22/EG/CO/1774</p>
+        <p>Collection of my CPE 314 Coursework Projects</p>
+    </header>
+
+    <main>
+        <section class="projects">
+
+            <div class="card">
+                <h3>Project 1</h3>
+                <p>Basic HTML Webpage</p>
+                <a href="lab1.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 2</h3>
+                <p>Form Design Project</p>
+                <a href="lab2.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 3</h3>
+                <p>Responsive Layout Design</p>
+                <a href="lab3.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 4</h3>
+                <p>Navigation Bar Design</p>
+                <a href="lab4.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 5</h3>
+                <p>Basic JavaScript Project</p>
+                <a href="lab5.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 6</h3>
+                <p>DOM Manipulation</p>
+                <a href="lab6.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 7</h3>
+                <p>JavaScript Events Project</p>
+                <a href="lab7.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 8</h3>
+                <p>To-Do List Application</p>
+                <a href="todo.html">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Project 9</h3>
+                <p>Student Profile & Multimedia</p>
+                <a href="profile.html">View Project</a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Web Development Coursework</p>
+        <p>Student ID: 22/EG/CO/1774</p>
+    </footer>
+
+</body>
 </html>
